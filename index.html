@@ -1,0 +1,136 @@
+<!-- <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#F7DF1E" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  font-family: 'Source Code Pro', monospace;
+  font-family: 'Lora', serif;
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.hero {
+  background-image: url('background.png');
+  padding: 30px;
+  background-size: cover;
+  height: 100vh;
+  background-repeat: no-repeat;
+}
+
+section { 
+  min-height: 100vh;
+}
+
+.content-box {
+  text-align: center;
+}
+
+.logo {
+  margin-top: 40px;
+  height: 200px;
+}
+
+.title {
+  font-size: 36px;
+  padding: 10px;
+  text-align: center;
+}
+
+.description {
+  text-align: center;
+  font-size: 18px;
+}
+
+.subscribe-input {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  background: #eeeeee;
+  border-radius: 3px;
+  padding: 15px;
+  border: none;
+  width: 25%;
+  font-family: inherit;
+  font-size: 16px;
+  margin: 0 auto 20px;
+}
+
+::placeholder {
+  color: #222222;
+}
+
+.sub-box {
+  padding: 45px 0;
+  text-align: center;
+}
+
+.subscribe-button {
+  font-family: inherit;
+  margin-top: 10px;
+  text-align: center;
+  background: black;
+  font-weight: bold;
+  padding: 12px 20px;
+  border: none;
+  color: #ffffff;
+  font-size: 16px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.about {
+  display: flex;
+}
+
+.about .side {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+  font-size: 20px;
+}
+
+.about .side.title {
+  font-weight: bold;
+  font-size: 70px;
+}
+
+@media only screen and (max-width: 900px) {
+  .subscribe-input {
+    width: 100%;
+  }
+}
+
+</style>
+
+<body>
+  <section class="hero">
+    <div class="content-box">
+      <h1 class="title">The JS Post</h1>
+      <div class="description">A free, bi-weekly email roundup of JavaScript news and articles.</div>
+      <img class="logo" src="logo.png" />
+    </div>
+    <div class="sub-box">
+      <input class="subscribe-input" placeholder="Name (Optional)" />
+      <input class="subscribe-input" placeholder="Email Address" /><br />
+      <button class="subscribe-button">Get Started</button>
+    </div>
+  </section>
+  <section class="about">
+    <div class="side title">
+      What is The JS Post?
+    </div>
+    <div class="side">
+      The JS post is a free mailing list for JavaScript enthusiasts. Subscribe to The JS Post to receive bi-weekly emails which feature a curated list of top JavaScript content from over the web.
+    </div>
+  </section>
+</body>
+
+<script>
+</script>
