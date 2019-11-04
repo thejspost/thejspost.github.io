@@ -1,4 +1,3 @@
-<!-- <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet"> -->
 <link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet">
 <meta name="theme-color" content="#F7DF1E" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,7 +56,7 @@ section {
   width: 25%;
   font-family: inherit;
   font-size: 16px;
-  margin: 0 auto 20px;
+  margin: 0 5px 20px;
 }
 
 ::placeholder {
@@ -84,14 +83,12 @@ section {
 }
 
 .about {
+  flex-wrap: wrap;
   display: flex;
 }
 
 .about .side {
   width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 60px;
   font-size: 20px;
 }
@@ -102,15 +99,136 @@ section {
 }
 
 @media only screen and (max-width: 900px) {
+  section {
+    height: auto;
+  }
+
+  .about .side .title {
+    margin-top: 0;
+  }
+
   .subscribe-input {
     width: 100%;
   }
+
+  .about .side {
+    width: 100%;
+  }
+}
+
+.loading {
+  height: 100vh;
+  width: 100%;
+  background: #4E698B;
+  position: fixed;
+  top: 0;
+  left: 0;
+  animation-name: exit;
+  animation-delay: 2.5s;
+  animation-fill-mode: forwards;
+  animation-duration: 0.3s;
+}
+
+@keyframes exit {
+  from {
+    clip-path: circle(100% at 50% 50%); 
+  }
+  to {
+    clip-path: circle(0% at 50% 50%);
+  }
+}
+
+.envelope-flap {
+  position: absolute;
+  top: calc(50% - 96px);
+  left: 50%;
+  animation-name: open;
+  animation-duration: 1s;
+  transform-origin: bottom center;
+  transform: translate(-50%, -100%) scale(0.5) rotateX(90deg);
+  animation-fill-mode: forwards;
+}
+
+@keyframes open {
+  from {
+    transform: translate(-50%, -100%) scale(0.5) rotateX(90deg);
+  }
+  to {
+    transform: translate(-50%, -100%) scale(0.5); 
+  }
+}
+
+.envelope-front, .envelope-back, .newsletter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.5) ;
+}
+
+.envelope-front {
+  top: calc(50% - 8px);
+}
+
+.newsletter {
+  height: 305px;
+  overflow: hidden;
+  animation-name: out;
+  animation-duration: 1s;
+  animation-delay: 0.7s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes out {
+  from {
+    transform: translate(-50%, -50%) scale(0.5) ;
+    height: 305px;
+  }
+  to {
+    transform: translate(-50%, calc(-50% - 75px)) scale(0.5) ;
+    height: 375px;
+  }
+}
+
+.loading .title {
+  position: absolute;
+  top: calc(50% + 180px);
+  font-weight: bold;
+  color: #F7DF1E;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.about .title {
+  margin-top: calc(50% - 60px);
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image img {
+  width: 100%;
 }
 
 </style>
 
 <body>
   <section class="hero">
+    <div class="loading">
+      <div>
+        <img class="envelope-flap" src="envelope-flap.png" />
+        <img class="envelope-back" src="envelope-back.png" />
+        <div class="newsletter" >
+          <img src="newsletter.png" />
+        </div>
+        <img class="envelope-front" src="envelope-front.png" />
+        <div class="title">The JS Post</div>
+      </div>
+    </div>
     <div class="content-box">
       <h1 class="title">The JS Post</h1>
       <div class="description">A free, bi-weekly email roundup of JavaScript news and articles.</div>
@@ -123,10 +241,11 @@ section {
     </div>
   </section>
   <section class="about">
-    <div class="side title">
-      What is The JS Post?
+    <div class="side image">
+      <img src="what.jpg" />
     </div>
     <div class="side">
+      <div class="title">What is The JS Post?</div>
       The JS post is a free mailing list for JavaScript enthusiasts. Subscribe to The JS Post to receive bi-weekly emails which feature a curated list of top JavaScript content from over the web.
     </div>
   </section>
